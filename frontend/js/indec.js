@@ -42,28 +42,28 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
       },
       draggable: {
          enabled: true, // whether dragging items is supported
-         handle: '.my-class', // optional selector for drag handle
+        //  handle: '.my-class', // optional selector for drag handle
          start: function(event, $element, widget) {}, // optional callback fired when drag is started,
          drag: function(event, $element, widget) {}, // optional callback fired when item is moved,
          stop: function(event, $element, widget) {} // optional callback fired when item is finished dragging
       }
   };
-  $scope.remove=function(index){
-    $scope.standardItems.splice(index, 1);
-  }
-  $scope.add=function(){
-    $scope.standardItems.push({size: {x: 1, y: 1}, position: [0, 0]});
-  }
+  // $scope.remove=function(index){
+  //   $scope.standardItems.splice(index, 1);
+  // }
+  // $scope.add=function(){
+  //   $scope.standardItems.push({size: {x: 1, y: 1}, position: [0, 0]});
+  // }
   
-  $scope.disableEditing=function(){
-    $scope.editEnabled=false;
-    $scope.gridsterOpts.resizable.enabled=false;
-    $scope.gridsterOpts.draggable.enabled=false;
-  }
+  // $scope.disableEditing=function(){
+  //   $scope.editEnabled=false;
+  //   $scope.gridsterOpts.resizable.enabled=false;
+  //   $scope.gridsterOpts.draggable.enabled=false;
+  // }
   
-  $scope.enableEditing=function(){
-    $scope.editEnabled=true;
-    $scope.gridsterOpts.resizable.enabled=true;
-    $scope.gridsterOpts.draggable.enabled=true;
-  }
+  // $scope.enableEditing=function(){
+  //   $scope.editEnabled=true;
+  //   $scope.gridsterOpts.resizable.enabled=true;
+  //   $scope.gridsterOpts.draggable.enabled=true;
+  // }
     }]);
