@@ -1,14 +1,15 @@
-var app = angular.module('mainApp', ['gridster']);
+var app = angular.module('mainApp', ['gridster','ui.router']);
 
 app.controller('mainCtrl', ['$scope', function ($scope) {
   $scope.editEnabled=true;
+  $scope.templates = ["template1", "template2", "template3", "template4", "template5"]
   $scope.standardItems = [
-    {size: {x: 1, y: 1}, position: [0, 0]},
-    {size: {x: 1, y: 1}, position: [0, 1]},
-    {size: {x: 2, y: 1}, position: [0, 2]},
-    {size: {x: 1, y: 1}, position: [0, 3]},
-    {size: {x: 1, y: 1}, position: [0, 4]},
-    {size: {x: 2, y: 1}, position: [1, 5]}
+    { sizeX: 6, sizeY: 2, row: 0, col: 0 },
+    { sizeX: 4, sizeY: 2, row: 2, col: 0 },
+    { sizeX: 2, sizeY: 2, row: 2, col: 4 },
+    { sizeX: 3, sizeY: 2, row: 4, col: 0 },
+    { sizeX: 3, sizeY: 2, row: 4, col: 3 },
+
   ];
   $scope.gridsterOpts = {
       columns: 6, // the width of the grid, in columns
@@ -67,3 +68,42 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
   //   $scope.gridsterOpts.draggable.enabled=true;
   // }
     }]);
+
+    app.config(function ($stateProvider, $urlRouterProvider) {
+        $stateProvider
+            .state('dashboard', {
+                url: '/',
+                views: {
+                    'template1': {
+                        templateUrl: 'templates/template1.html',
+                        controller: 'template1Controller',
+                        controllerAs: 'temp1Ctrl'
+                    },
+                    'template2': {
+                        templateUrl: '/templates/template2.html',
+                        controller: 'template2Controller'
+                        // controllerAs: 'temp2Ctrl'
+                    },
+                    'template3': {
+                        templateUrl: '/templates/template3.html',
+                        controller: 'template3Controller',
+                        controllerAs: 'temp3Ctrl'
+                    },
+                    'template4': {
+                        templateUrl: '/templates/template4.html',
+                        controller: 'template4Controller',
+                        controllerAs: 'temp4Ctrl'
+                    },
+                    'template5': {
+                        templateUrl: '/templates/template5.html',
+                        controller: 'template5Controller',
+                        controllerAs: 'temp5Ctrl'
+                    }
+                }
+            })
+            $urlRouterProvider.otherwise('/dashboard');
+    });
+
+    app.controller('template1Controller', function ($http, $scope) {
+           $scope.mesg = "Arjun"
+        })

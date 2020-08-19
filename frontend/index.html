@@ -37,8 +37,9 @@
     <script src="./js/indec.js"></script>
 <!--==============================================================================================-->
     <script src="./node_modules/moment.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <!--==============================================================================================-->    
-    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
     <script>
 		$(document).ready(function(){
 			$(".hamburger").click(function(){
@@ -140,7 +141,7 @@
         <div gridster="gridsterOpts" class="unselectable">
             <ul>
                 <li style="border: solid 1px;" class="widget" gridster-item="item" ng-repeat="item in standardItems">
-             
+            		<div ui-view="{{templates[$index]}}"></div>
                 </li>
             </ul>
         </div>

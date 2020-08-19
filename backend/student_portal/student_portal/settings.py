@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'student',
     'students',
     'time_table',
+    'attendence',
+    'marks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
