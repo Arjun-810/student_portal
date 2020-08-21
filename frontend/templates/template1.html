@@ -1,0 +1,96 @@
+<style>
+  .chart{
+      height: 150%;
+      width: 150%;
+      padding: 50px;
+  }
+  .attendance-heading{
+    color: rgb(80, 155, 240);
+    margin: 20px;
+  }
+  .attendance-content table{
+    width: 90%;
+    font-size: 110%;
+  }
+  .attendance-content th{
+    color: rgb(99, 99, 99);
+  }
+  .attendance-content tr{
+    height: 40px;
+  }
+  .border--bottom{
+    border-bottom: 2px solid rgb(204, 199, 199)
+  }
+  .attendece--num{
+    color: green;
+  }
+  .attendence--last--content{
+    font-size: 140%;
+    font-weight: bold;
+  }
+  .attendence-color-grey{
+    color: rgb(134, 132, 132);
+  }
+</style>
+<div class="cntainer-fluid">
+  <h2 class="attendance-heading"><strong>ATTENDENCE</strong></h2>
+  <div class="row">
+    <div class="col-4">
+      <div class="chart">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-6">
+      <div class="attendance-content">
+        <table>
+          <tr class="border--bottom">
+            <th>
+              ATTENDANCE TYPE
+            </th>
+            <th>PERCENTAGE</th>
+            <th>P/T</th>
+          </tr>
+          <tr class="border--bottom">
+            <td>NORMAL</td>
+            <td class="attendece--num">
+              70%
+            </td>
+            <td>55/52</td>
+          </tr>
+          <tr class="attendence--last--content">
+            <td class="attendence-color-grey">OVERALL</td>
+            <td class="attendece--num">
+              70%
+            </td>
+            <td class="attendence-color-grey">55/52</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Presrnt', 'Absent'],
+        datasets: [{
+            label: 'Points',
+            data: [70, 30],
+            backgroundColor: [
+                'rgb(48, 190, 48)',
+                'rgb(153, 152, 152)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+    }
+});
+</script> 

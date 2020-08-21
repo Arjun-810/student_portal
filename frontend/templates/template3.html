@@ -1,0 +1,51 @@
+<style>
+    .birthday--main{
+        background-color: rgb(77, 76, 76);
+        padding: 20px;
+    }
+    .content--birthday{
+        background-color: white;
+        padding: 6px;
+        margin: 15px 0;
+    }
+    h3{
+        color: white;
+    }
+    .birthday--name{
+        color: rgb(96, 164, 241);
+    }
+    .birthday--img{
+        border-right: 2px solid rgb(96, 164, 241);
+    }
+</style>
+<div class="birthday--main">
+    <div>
+    <h3>PEOPLE YOU MAY WISH TODAY.....</h3>
+    <div class="sub--birthday">
+        <div class="repeat--birthday container" ng-repeat="employee in employees">
+            <div class="content--birthday row">
+            <div class="col-3 birthday--img">
+            <img class="img-fluid" src="/frontend/templates/img/cake.png">
+            </div>
+            <div class="col-9">
+            <div class="birthday--name">
+                {{employee.Name}}
+            </div>
+            <div>
+                <div>
+                    <div>
+                        <span>Course:</span>
+                        <span>{{employee.course}}</span>
+                        <span>Department:</span>
+                        <span>{{employee.course}}</span>
+                        <span>semister:</span>
+                        <span>{{employee.semister}}</span>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
