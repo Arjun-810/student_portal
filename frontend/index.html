@@ -36,12 +36,13 @@
 	<script src="./node_modules/chart.js/dist/Chart.min.js"></script>
 <script src="./node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
 <!--==============================================================================================-->    
-    <script src="https://cdn.jsdelivr.net/npm/angular.piechart@0.2.8/js/angular.piechart.min.js">
-<!--==============================================================================================-->
-    <script src="./node_modules/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/angular.piechart@0.2.8/js/angular.piechart.min.js"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <!--==============================================================================================-->    
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="/frontend/bower_components/fullcalendar/dist/fullcalendar.min.css"/>
+
     <script>
 		$(document).ready(function(){
 			$(".hamburger").click(function(){
@@ -73,7 +74,7 @@
 				</div>
 				<div class="icon_wrap">
 					<div class="icon">
-						<i class="fas fa-cog"></i>
+						<a  href="Login/login.html"><i class="fas fa-cog"></i></a>
 					</div>
 				</div>
 			</div>
@@ -153,7 +154,10 @@
 	</div>
 </div>
 <script src="indec.js"></script>
-
+<script src="/frontend/bower_components/moment/min/moment.min.js"></script>
+<script src="/frontend/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+<script src="/frontend/bower_components/fullcalendar/dist/gcal.js"></script>
+<script src="/frontend/templates/calender.js"></script>
 </body>
 
 </html>

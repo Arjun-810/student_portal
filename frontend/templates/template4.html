@@ -4,8 +4,7 @@
     /* padding: 0.5rem 1rem; */
     background: var(--color-background--template);
     animation: topAnimation 0.5s;
-    background: white;
-    height: 735px;
+
   }
   .temp5--title--heading {
     font-style: inherit;
@@ -63,14 +62,9 @@
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p1}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p1}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                      {{employees[0].time1}}
                   </p>
                 </div>
               </div>
@@ -88,14 +82,9 @@
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p2}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p2}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time2}}
                   </p>
                 </div>
               </div>
@@ -113,14 +102,9 @@
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p3}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p3}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time3}}
                   </p>
                 </div>
               </div>
@@ -138,14 +122,9 @@
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p4}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p4}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time4}}
                   </p>
                 </div>
               </div>
@@ -164,14 +143,9 @@
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p5}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p5}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time5}}
                   </p>
                 </div>
               </div>
@@ -182,21 +156,16 @@
               <div class="row">
                 <div class="col-2">
                   <div class="timetable--period_number text-center">
-                    5
+                    6
                   </div>
                   <div class="myline" ng-if="! $last">
                     <!-- &darr; -->
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p6}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p6}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time6}}
                   </p>
                 </div>
               </div>
@@ -214,14 +183,9 @@
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p7}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p7}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time7}}
                   </p>
                 </div>
               </div>
@@ -232,21 +196,16 @@
               <div class="row">
                 <div class="col-2">
                   <div class="timetable--period_number text-center">
-                    81
+                    8
                   </div>
                   <div class="myline" ng-if="! $last">
                     <!-- &darr; -->
                   </div>
                 </div>
                 <div class="col-10">
-                  <p class="timetable--subject_name">{{employee[0].p8}}</p>
+                  <p class="timetable--subject_name">{{employees[0].p8}}</p>
                   <p class="timetable--subject_details">
-                    <span class="timetable--class_type"
-                      >(Theory) -
-                    </span>
-                    <span class="timetable--subject_teacher"
-                      >Vandna Singhal</span
-                    >
+                    {{employees[0].time8}}
                   </p>
                 </div>
               </div>

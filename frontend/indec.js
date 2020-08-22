@@ -1,12 +1,12 @@
-var app = angular.module('mainApp', ['gridster','ui.router', 'chart.js']);
+var app = angular.module('mainApp', ['gridster','ui.router', 'chart.js', 'ui.calendar']);
 
 app.controller('mainCtrl', ['$scope', function ($scope) {
   $scope.editEnabled=true;
   $scope.templates = ["template1", "template2", "template3", "template4", "template5"]
   $scope.standardItems = [
     { sizeX: 6, sizeY: 2, row: 0, col: 0 },
-    { sizeX: 4, sizeY: 2, row: 2, col: 0 },
-    { sizeX: 2, sizeY: 2, row: 2, col: 4 },
+    { sizeX: 4, sizeY: 3, row: 2, col: 0 },
+    { sizeX: 2, sizeY: 3, row: 2, col: 4 },
     { sizeX: 3, sizeY: 3, row: 4, col: 0 },
     { sizeX: 3, sizeY: 3, row: 4, col: 3 },
 
@@ -49,24 +49,7 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
          stop: function(event, $element, widget) {} // optional callback fired when item is finished dragging
       }
   };
-  // $scope.remove=function(index){
-  //   $scope.standardItems.splice(index, 1);
-  // }
-  // $scope.add=function(){
-  //   $scope.standardItems.push({size: {x: 1, y: 1}, position: [0, 0]});
-  // }
-  
-  // $scope.disableEditing=function(){
-  //   $scope.editEnabled=false;
-  //   $scope.gridsterOpts.resizable.enabled=false;
-  //   $scope.gridsterOpts.draggable.enabled=false;
-  // }
-  
-  // $scope.enableEditing=function(){
-  //   $scope.editEnabled=true;
-  //   $scope.gridsterOpts.resizable.enabled=true;
-  //   $scope.gridsterOpts.draggable.enabled=true;
-  // }
+
     }]);
 
    app.config(AppConfig);
@@ -105,9 +88,9 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
     // Controller
     app.controller('template1Controller', template1Controller);
     app.controller('template2Controller', template2Controller);
-    app.controller('template3Controller', template1Controller);
-    app.controller('template4Controller', template1Controller);
-    app.controller('template5Controller', template1Controller);
+    app.controller('template3Controller', template3Controller);
+    app.controller('template4Controller', template4Controller);
+    app.controller('template5Controller', template5Controller);
 
     // templete 1
     template1Controller.$inject = ['$scope', '$scope', '$http'];
@@ -115,7 +98,7 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
       // var user_api = localStorage.getItem('api')
     // url = user_api + 'appointment/receptionpending/'
     // $http.get(url)
-        $http.get('https://1448253e826b.ngrok.io/students/birthday/')
+        $http.get('https://1923612f6b8c.ngrok.io/students/birthday/')
         .then(function (response) {
             $scope.employees = response.data;
             console.log($scope.employees)
@@ -124,27 +107,87 @@ app.controller('mainCtrl', ['$scope', function ($scope) {
     }
 
     // template 2
-    template2Controller.$inject = ['$scope', '$scope', '$http'];
-    function template2Controller($scope,$rootScope,  $http){
-      $scope.name = "sdrg";   
-
-    }
-
+      template2Controller.$inject = ['$scope', '$http'];
+      function template2Controller($scope, $http){
+        var data = {
+          semister: '3', 
+          course: 'B.tech', 
+          day: 'Monday',
+          branch: 'CO', 
+        }
+        $http.post("https://1923612f6b8c.ngrok.io/time/table/", JSON.stringify(data))
+        .then(function (response) {
+          $scope.employees = response.data;
+            console.log(response);
+            console.log(response.data);
+                   })
+            // console.log(c);
+    // })
+      }
+    
     // template 3
     template3Controller.$inject = ['$scope', '$scope'];
     function template3Controller($scope, $http){
-      console.log('ef')
-    }
+
+    console.log('wee')
+      $scope.custom = {
+        url: "http://www.google.com/calendar/feeds/indian__en%40holiday.calendar.google.com/public/basic",
+        // className: 'gcal-event',           // an option!,
+        currentTimezone: 'India', // an option!
+        googleCalendarApiKey: 'AIzaSyCc5LZyMQ2pBB1dAJerfliEEu0P8hMUVwg'
+    };
+
+    $scope.eventSources = [$scope.custom];
+    /* config object */
+      $scope.uiConfig = {
+        calendar:{
+          height: 600,
+          editable: false,
+          header:{
+            // left: 'month basicWeek basicDay agendaWeek agendaDay',
+            left: 'title',
+            center: '',
+            right: 'today prev,next'
+          },
+          eventClick: $scope.alertEventOnClick,
+          eventDrop: $scope.alertOnDrop,
+          eventResize: $scope.alertOnResize
+        }
+      };
+
+
+
+
+
+  }
 
     // template 4
-    template4Controller.$inject = ['$scope', '$scope'];
-    function template4Controller($scope, $http){}
+    template4Controller.$inject = ['$scope', '$http'];
+    function template4Controller($scope, $http){
+      var data = {
+        student_id: '1', 
+      }
+      $http.post("https://1923612f6b8c.ngrok.io/attendence/daily/", JSON.stringify(data))
+      .then(function (response) {
+        $scope.employees = response.data;
+          console.log(response);
+          console.log(response.data);
+          var plogindata = JSON.parse(JSON.stringify(response.data));
+          var data = JSON.stringify(plogindata);
+          localStorage.setItem("patient_profile", data);
+        })
+          // console.log(c);
+  // })
+    }
 
     // template 5
     template5Controller.$inject = ['$scope', '$scope'];
-    function template5Controller($scope, $http){}
+    function template5Controller($scope, $http){
+      
+    }
 
 
 
 
+  
 			

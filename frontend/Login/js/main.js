@@ -10,17 +10,15 @@ app.controller("loginController", function ($scope, $http) {
             password: password
         }
         console.log(data);
-        $http.post(" https://e4f5fef030a5.ngrok.io/student/login/", JSON.stringify(data))
+        $http.post("https://1923612f6b8c.ngrok.io/student/login/", JSON.stringify(data))
             .then(function (res) {
                 console.log(res);
                 console.log(res.data);
                 console.log(res.data);
                 var docdata = JSON.stringify(res.data);
                 console.log(docdata);
-                if(docdata == 'OK')
-                    alert("successull")
-                else
-                    alert(docdata)
+                window.location.href = "../index.html";
+                alert('esf')
             })
     }
 });
